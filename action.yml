@@ -2,7 +2,7 @@ name: "AWS Cloudfront Invalidate Action"
 description: "Github action to invalidate Cloudfront distribution"
 branding:
   color: "yellow"
-  icon: ""
+  icon: "aperture"
 inputs:
   AWS_ACCESS_KEY_ID:
     description: "AWS Access Key. [AWS Docs](https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)"
