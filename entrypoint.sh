@@ -37,7 +37,6 @@ EOF
 
 # Use our dedicated profile and suppress verbose messages.
 # All other flags are optional via `args:` directive.
-sh -c "aws cloudfront create-invalidation \
-          --distribution-id ${DISTRIBUTION_ID} \
+sh -c "aws cloudfront create-invalidation --distribution-id ${DISTRIBUTION_ID} \
           --profile cloudfront-action \
           --no-progress $*"
