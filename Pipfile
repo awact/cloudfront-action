@@ -1,0 +1,28 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+black = "==19.3b0"
+flake8 = "*"
+invoke = "*"
+isort = "*"
+mypy = "*"
+pep8 = "*"
+tox = "*"
+
+[packages]
+awscli = "*"
+
+[pipenv]
+allow_prereleases = true
+
+[requires]
+python_version = "3.7"
+
+[scripts]
+check = "invoke check"
+format = "invoke format"
+libs = "invoke libs"
+test = "tox -p all"

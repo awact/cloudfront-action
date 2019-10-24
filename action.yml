@@ -1,0 +1,35 @@
+name: "AWS Cloudfront Invalidate Action"
+description: "Github action to invalidate Cloudfront distribution"
+branding:
+  color: "yellow"
+  icon: ""
+inputs:
+  AWS_ACCESS_KEY_ID:
+    description: "AWS Access Key. [AWS Docs](https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)"
+    required: true
+    default: null
+  AWS_SECRET_ACCESS_KEY:
+    description: "AWS Secret Access Key. [AWS Docs](https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)"
+    required: true
+    default: null
+  AWS_REGION:
+    description: "Region of the S3 Bucket"
+    required: true
+    default: null
+  DISTRIBUTION_ID:
+    description: "ID of the Cloudfront Distribution"
+    required: true
+    default: null
+  SOURCE_PATH:
+    description: "Path to invalidate Cloudfront distribution"
+    required: false
+    defualt: "."
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.AWS_ACCESS_KEY_ID }}
+    - ${{ inputs.AWS_SECRET_ACCESS_KEY }}
+    - ${{ inputs.AWS_S3_BUCKET }}
+    - ${{ inputs.DISTRIBUTION_ID }}
+    - ${{ inputs.SOURCE_PATH }}

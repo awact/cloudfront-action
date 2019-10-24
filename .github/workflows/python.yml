@@ -1,0 +1,22 @@
+name: Python Check Format, Sorting, and Type-Check
+on:
+  push:
+    paths:
+      - "**.py"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+      - name: Install dependencies with pipenv
+        run: |
+          python -m pip install --upgrade pip
+          pip install pipenv
+          pipenv sync --dev
+      - name: Run test with Tox
+        run: |
+          pipenv run tox -p all
