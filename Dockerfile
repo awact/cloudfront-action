@@ -1,2 +1,2 @@
-FROM awact/s3-action
+FROM awact/cloudfront-action
 ENTRYPOINT ["/entrypoint.sh"]
