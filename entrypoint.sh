@@ -40,3 +40,14 @@ EOF
 sh -c "aws cloudfront create-invalidation --distribution-id ${DISTRIBUTION_ID} \
           --paths '${SOURCE_PATH}' \
           --profile cloudfront-action $*"
+          
+# Clear out credentials after we're done.
+# We need to re-run `aws configure` with bogus input instead of
+# deleting ~/.aws in case there are other credentials living there.
+# https://forums.aws.amazon.com/thread.jspa?threadID=148833
+aws configure --profile cloudfront-action <<-EOF > /dev/null 2>&1
+null
+null
+null
+text
+EOF
